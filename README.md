@@ -1,2 +1,2 @@
-# Windeo
+# Wideo
  Video Library Macro Project

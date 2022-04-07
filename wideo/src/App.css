@@ -1,7 +1,7 @@
 :root{
   --primary-black:#161616;
-  --CTA: #f00;
-  --CTA-light: #fa749a;
+  --CTA: #FF0000;
+  /* --CTA-light: #fa749a; */
   --gray-subnav:#393a3b;
   --rating-green:#24963f;
 }

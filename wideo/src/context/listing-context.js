@@ -5,11 +5,14 @@ import {
 	useEffect,
 	useState,
 } from "react";
-import { videoListingReducer } from "../reducers/videoListingReducer";
-import { getVideoListingService } from "../services/getVideoListingService";
-import { getCategoriesService } from "../services/getCategoriesService";
-import { actionTypes } from "../constants/actionTypes";
-import { toast } from "react-toastify";
+
+
+
+
+
+import { getVideoListingService } from "../services/listingServices";
+import { getCategoriesService } from "../services/categoryService";
+import { videoListingReducer } from "../reducers/listingReducer";
 const VideoListingContext = createContext();
 const useVideoListing = () => useContext(VideoListingContext);
 
@@ -26,7 +29,7 @@ const VideoListingProvider = ({ children }) => {
 	);
 	const [videoListingLoader, setVideoListingLoader] = useState(false);
 	const [videoListingError, setVideoListingError] = useState(false);
-	const { LOAD_DATA } = actionTypes;
+	
 	useEffect(() => {
 		(async () => {
 			try {
@@ -38,7 +41,7 @@ const VideoListingProvider = ({ children }) => {
 					let videos = res.data.videos;
 					let categories = resCat.data.categories;
 					videoListingDispatch({
-						type: LOAD_DATA,
+						type: "LOAD_DATA",
 						payload: { videos, categories },
 					});
 					setVideoListingLoader(false);

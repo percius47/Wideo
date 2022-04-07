@@ -1,12 +1,17 @@
 import "./App.css";
 import Navbar from "./Components/Navbar";
-import logo from "./logo.png";
-import {Footer} from "./Components/Footer"
+import {Toaster} from "react-hot-toast"
+import Footer from "./Components/Footer"
+import PageRoutes from "./routes/PageRoutes";
 function App() {
   return (
     <div className="App">
+      <Toaster/>
       <Navbar/>
-      <Footer/>
+   
+      <PageRoutes/>
+      {/* <Footer/> */}
+ 
     </div>
   );
 }

@@ -5,13 +5,17 @@ import {
 	useEffect,
 	useState,
 } from "react";
-import { getLikesService } from "../services/likes-services";
-import { actionTypes } from "../constants/actionTypes";
-import { userDataReducer } from "../reducers/userDataReducer";
-import { useAuth } from "./AuthContext";
-import { getWatchLaterService } from "../services/watchlist-services";
-import { getAllPlaylistService } from "../services/playlist-services";
-import { getHistoryService } from "../services/history-services";
+
+
+
+
+
+import { getLikes } from "../services/likes/getLikes";
+import { useAuth } from "./auth-context";
+import { userDataReducer } from "../reducers/dataReducer";
+import { getWatchLater } from "../services/watchlist/getWatchLater";
+import { getAllPlaylistsHandler } from "../backend/controllers/PlaylistController";
+import { fetchHistory } from "../services/history/fetchHistory";
 const userDataContext = createContext();
 const useUserData = () => useContext(userDataContext);
 const UserDataProvider = ({ children }) => {
@@ -27,7 +31,7 @@ const UserDataProvider = ({ children }) => {
 	const [watchLaterLoading, setWatchLaterLoading] = useState(false);
 	const [otherPlaylistLoading, setOtherPlaylistLoading] = useState(false);
 	const [error, setError] = useState(false);
-	const { SET_LIKES, SET_WATCHLATER, SET_PLAYLISTS, SET_HISTORY } = actionTypes;
+	
 	const { auth } = useAuth();
 
 	useEffect(() => {
@@ -35,11 +39,11 @@ const UserDataProvider = ({ children }) => {
 			(async () => {
 				setLikesLoading(true);
 				try {
-					const res = await getLikesService(auth.tokenVL);
+					const res = await getLikes(auth.tokenVL);
 					setLikesLoading(false);
 					if (res.status === 200) {
 						userDataDispatch({
-							type: SET_LIKES,
+							type: "SET_LIKES",
 							payload: { data: res.data },
 						});
 					}
@@ -51,11 +55,11 @@ const UserDataProvider = ({ children }) => {
 			(async () => {
 				setWatchLaterLoading(true);
 				try {
-					const res = await getWatchLaterService(auth.tokenVL);
+					const res = await getWatchLater(auth.tokenVL);
 
 					if (res.status === 200) {
 						userDataDispatch({
-							type: SET_WATCHLATER,
+							type: "SET_WATCHLATER",
 							payload: { data: res.data },
 						});
 						setWatchLaterLoading(false);
@@ -68,11 +72,11 @@ const UserDataProvider = ({ children }) => {
 			(async () => {
 				setOtherPlaylistLoading(true);
 				try {
-					const res = await getAllPlaylistService(auth.tokenVL);
+					const res = await getAllPlaylistsHandler(auth.tokenVL);
 					console.log("playlist", res);
 					if (res.status === 200) {
 						userDataDispatch({
-							type: SET_PLAYLISTS,
+							type: "SET_PLAYLISTS",
 							payload: { data: res.data },
 						});
 						setOtherPlaylistLoading(false);
@@ -85,11 +89,11 @@ const UserDataProvider = ({ children }) => {
 			(async () => {
 				setHistoryLoading(true);
 				try {
-					const res = await getHistoryService(auth.tokenVL);
+					const res = await fetchHistory(auth.tokenVL);
 					console.log("in history playlists", res.data);
 					if (res.status === 200) {
 						userDataDispatch({
-							type: SET_HISTORY,
+							type: "SET_HISTORY",
 							payload: { data: res.data },
 						});
 						setHistoryLoading(false);

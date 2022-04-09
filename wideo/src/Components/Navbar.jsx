@@ -26,12 +26,6 @@ function Navbar() {
 
 	const [typing, setTyping] = useState(false);
 
-	const logoutHandler = () => {
-		localStorage.removeItem("tokenVL");
-		localStorage.removeItem("isAuthVL");
-		setAuth({ tokenVL: "", isAuthVL: false });
-		navigate("/explore");
-	};
   return (
         
     <div class="header-wrapper">
@@ -63,10 +57,10 @@ function Navbar() {
             }}
         />
         <button className='search-btn'>
+            <div></div>
            {
                     typing && searchText
-                        ? <CloseRoundedIcon/>
-                        : <SearchRoundedIcon
+                        ? <CloseRoundedIcon className='pointer'
                         alt="search"
                         onClick={() => {
                             setTyping(false);
@@ -74,7 +68,9 @@ function Navbar() {
                                 type: "SEARCH",
                                 payload: { searchInput: "" },
                             });
-                        }}
+                        }}/>
+                        : <SearchRoundedIcon
+                        className='pointer'
                         />
                 }
                
@@ -84,7 +80,13 @@ function Navbar() {
 
 
     {auth.isAuthVL ? (
-					 <div class="header-options"onClick={logoutHandler}>
+					 <div class="header-options"onClick={()=>{
+                        localStorage.removeItem("tokenVL");
+                        localStorage.removeItem("isAuthVL");
+                        setAuth({ tokenVL: "", isAuthVL: false });
+                        navigate("/explore");
+                        toast.success("Logged out!")
+                     }}>
 						<NavLink to="/login" className=" ">
 							
                         <button
@@ -96,45 +98,17 @@ function Navbar() {
 						<NavLink to="/login" className="flex-column ">
 						
                         <button
-             className="header-login btn btn-outline">Login</button>
+             className="header-login btn btn-outline"
+             onClick={()=>{
+                toast.success("Logged in!")
+             }}
+             >Login</button>
 						</NavLink>
 					</div>
 				)}
 
 
-             {auth?( 
-             <NavLink to="/logout">
-                 <button
-             className="header-login btn btn-outline"
           
-          
-             onClick={() => {
-               localStorage.removeItem("token");
-               localStorage.setItem("isAuth", false);
-               setAuth(false);
-               toast.success("Logged out!")}}
-            >
-                Logout
-                </button>
-           
-            </NavLink>):(
-                <NavLink to="/login">
-                <button class="header-login btn btn-outline"
-                
-              
-            
-                 onClick={() => {
-                   localStorage.removeItem("token");
-                   localStorage.setItem("isAuth", false);
-                   setAuth(false);
-                   toast.success("Logged in!")
-            }}
-                >
-                    Login
-                </button>
-                </NavLink>
-
-            )}
          
 </div>
 

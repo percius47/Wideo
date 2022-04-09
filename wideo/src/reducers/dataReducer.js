@@ -10,10 +10,11 @@ export const userDataReducer = (state, action) => {
 				likesPlaylist: [...likes],
 			};
 		case "SET_WATCHLATER":
-			const watchLater = action.payload.data.watchLater;
+			const watchlater = action.payload.data.watchlater;
+			console.log("inside data red",watchlater);
 			return {
 				...state,
-				watchLaterPlaylist: [...watchLater],
+				watchLaterPlaylist: [...watchlater],
 			};
 		case "SET_HISTORY":
 			const history = action.payload.data.history;

@@ -1,13 +1,22 @@
 :root{
   --primary-black:#161616;
+  --selected:#2a2929;
   --CTA: #FF0000;
-  /* --CTA-light: #fa749a; */
-  --gray-subnav:#393a3b;
+  --text:whitesmoke;
+  --CTA-light: #e33535;
+  --gray-border:gray;
   --rating-green:#24963f;
 }
+body{
+  background-color: black;
+}
+.pointer{
+  cursor: pointer;
+}
+
 .footer{
   width: 100%;
-  position: relative;
+  position:sticky;
   bottom: 0;
   left: 0;
   right: 0;

@@ -1,0 +1,60 @@
+
+.modal-parent{
+
+    position: fixed;
+
+    top: 25%;
+    left: 40%;
+   width: 50vh;
+   
+    text-align: center;
+    background-color: var(--primary-black) ;
+    color: white;
+    border: 1px solid var(--selected);
+    
+  }
+  .modal-child-1{
+   
+    list-style: none;
+  }
+  .modal-child-1 div{
+
+    padding: 0.5rem ;
+   
+  }
+  .modal-child-1 div:hover{
+      background-color: var(--selected);
+  }
+  .modal-heading{
+      display: flex;
+      margin: 0.5rem;
+      justify-content: space-between;
+      align-items: center;
+  }
+  .modal-btn{
+      display: flex;
+      
+      align-items: center;
+        justify-content: center;
+
+  }
+  .create-btn{
+    background-color: var(--CTA);
+      color: var(--text);
+      padding: 0.5rem;
+      border-radius: 0.25rem;
+  }
+  .playlist-modal-item input{
+  
+    accent-color: var(--CTA); 
+  }
+  .modal-input{
+      background-color: var(--primary-black);
+      color: var(--text);
+  }
+  .modal-input-div{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0.5rem 0.25rem;
+  }

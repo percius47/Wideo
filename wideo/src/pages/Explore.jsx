@@ -1,12 +1,17 @@
-import React from 'react'
-import Footer from '../Components/Footer'
-import Navbar from '../Components/Navbar'
+import React, { useState } from 'react'
+
+import "./Explore.css"
+import Sidebar from '../Components/Sidebar'
+import VideoList from '../Components/VideoList'
+
+
 
 function Explore() {
-  return (
-    <div>
-    
-        <h1>explore</h1>
+   
+  return  (
+    <div className='explore-container'>
+    <Sidebar className="explore-sidebar"/>
+    <VideoList className="explore-video"/>
 
     </div>
   )

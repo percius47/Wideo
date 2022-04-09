@@ -20,7 +20,7 @@ const VideoListingProvider = ({ children }) => {
 	const [videoListingState, videoListingDispatch] = useReducer(
 		videoListingReducer,
 		{
-			data: [],
+			data: [], 
 			categories: [],
 			selectedCategory: "",
 			sortBy: "",

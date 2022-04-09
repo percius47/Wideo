@@ -1,0 +1,38 @@
+.play-container{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(6, [col-play] 1fr);
+}
+.play-container h2{
+    margin-top: 2vh;
+}
+.play-sidebar{
+    grid-column: col-play /2;
+
+}
+.play-header{
+    margin-top: 8vh;
+}
+.play-video{
+    color: var(--text);
+    margin-top: 8vh;
+}
+.play-video{
+    grid-column: col-play 2/ -1;
+    min-height: 85vh;
+}
+.play-list{
+     
+  
+    color: var(--text);
+    display: grid;
+  
+    width: 100%;
+    grid-template-columns: repeat(3, [col-p2] 1fr);
+}
+
+@media (max-width: 1024px) {
+    .play-video{
+        grid-column: col-play / -1;
+    }
+}

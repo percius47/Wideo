@@ -1,0 +1,38 @@
+.likes-container{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(6, [col-likes] 1fr);
+}
+.likes-container h2{
+    margin-top: 8vh;
+}
+.likes-sidebar{
+    grid-column: col-likes /2;
+
+}
+.likes-header{
+    margin-top: 8vh;
+}
+.likes-video{
+    color: var(--text);
+    margin-top: 8vh;
+}
+.likes-video{
+    grid-column: col-likes 2/ -1;
+    min-height: 85vh;
+}
+.likes-list{
+     
+  
+    color: var(--text);
+    display: grid;
+  
+    width: 100%;
+    grid-template-columns: repeat(3, [col-l2] 1fr);
+}
+
+@media (max-width: 1024px) {
+    .likes-video{
+        grid-column: col-likes / -1;
+    }
+}

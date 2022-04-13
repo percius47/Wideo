@@ -1,0 +1,38 @@
+.wl-container{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(6, [col-likes] 1fr);
+}
+.wl-container h2{
+    margin-top: 8vh;
+}
+.wl-sidebar{
+    grid-column: col-likes /2;
+
+}
+.wl-header{
+    margin-top: 8vh;
+}
+.wl-video{
+    color: var(--text);
+    margin-top: 8vh;
+}
+.wl-video{
+    grid-column: col-likes 2/ -1;
+    min-height: 85vh;
+}
+.wl-list{
+     
+  
+    color: var(--text);
+    display: grid;
+  
+    width: 100%;
+    grid-template-columns: repeat(3, [col-l2] 1fr);
+}
+
+@media (max-width: 1024px) {
+    .wl-video{
+        grid-column: col-likes / -1;
+    }
+}

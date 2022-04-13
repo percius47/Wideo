@@ -1,0 +1,17 @@
+.explore-container{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(6, [col] 1fr);
+}
+.explore-sidebar{
+    grid-column: col /2;
+
+}
+.explore-video{
+    grid-column: col 2/ -1;
+}
+@media (max-width: 1024px) {
+    .explore-video{
+        grid-column: col / -1;
+    }
+}

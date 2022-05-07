@@ -13,15 +13,16 @@ import { useAuth } from "../context/auth-context";
 import { getViewCount } from "../util/getViewCount";
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import PlaylistAddRoundedIcon from '@mui/icons-material/PlaylistAddRounded';
+import PlaylistModal from "./PlaylistModal";
 
 export const VideoCard = ({ video }) => {
 	const navigate = useNavigate();
 	const {
 		userData: { likesPlaylist, watchLaterPlaylist },
 	} = useUserData();
-	const [openedModal, setOpenedModal] = useState(false);
+	
 	const [openOptions, setOpenOptions] = useState(false);
-
+	const [opened, setOpened] = useState(false);
 	const inLikedPlaylist = checkPlaylist(video, likesPlaylist);
 	const inWatchLaterPlaylist = checkPlaylist(video, watchLaterPlaylist);
 	const [addToLikesServerCall, addingToLikes] = usePlaylist(
@@ -148,7 +149,11 @@ export const VideoCard = ({ video }) => {
                 <li  className='mobile-menu-list-item'>
                    
                    {/* {auth?(  */}
-                    < div>
+                    < div 
+						onClick={() =>{ setOpened(true)
+						
+							}}
+					>
                     <PlaylistAddRoundedIcon/>
                         <span
                    
@@ -164,6 +169,9 @@ export const VideoCard = ({ video }) => {
                    </div>
                 
                    </li>
+				   <PlaylistModal 
+				  
+				   val={opened} setOpened={setOpened} video={video} />
             </ul>
          </div>
         } 

@@ -20,7 +20,7 @@ export const PlaylistVideo = ({ video, playlistTitle, playlist }) => {
 		removeFromPlaylist,
 		playlist,
 		"SET_PLAYLIST",
-		`Removed from ${playlist?.title}`,
+		`Removed from ${playlist.title}`,
 		video
 	);
 	const [removeFromWatchLaterServiceCall] = usePlaylist(

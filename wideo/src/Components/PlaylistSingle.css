@@ -55,8 +55,15 @@ align-items: center;
     font-weight: 500;
     width: 80%;
 }
+
 @media (max-width: 1024px) {
     .single-play-video{
         grid-column: col-likes / -1;
+    }
+}
+@media (max-width: 640px) {
+    .playlist-video{
+        width: 90%;
+
     }
 }

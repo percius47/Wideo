@@ -24,7 +24,7 @@ function PlaylistSingle() {
            <h2>{playlist.title}</h2>
            <div className="single-play-list">
            {playlist.videos.length === 0 ? (
-						<h3>No videos added...</h3>
+						<h3>No videos added.</h3>
 					) : (
 						playlist.videos.map((video) => (
                         <PlaylistVideo

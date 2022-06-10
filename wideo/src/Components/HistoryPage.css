@@ -45,9 +45,19 @@
     width: 100%;
     grid-template-columns: repeat(3, [col-l2] 1fr);
 }
-
+.hist-list p{
+    width: 80%;
+    text-align: center;
+    display: block;
+}
 @media (max-width: 1024px) {
     .hist-video{
         grid-column: col-likes / -1;
     }
+}
+@media (max-width: 640px) {
+.hist-list{
+    display: block;
+    margin-bottom: 3rem;
+}
 }

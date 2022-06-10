@@ -4,6 +4,8 @@
     grid-template-columns: repeat(6, [col-likes] 1fr);
 }
 .wl-container h2{
+
+    margin: 0.5rem;
     margin-top: 8vh;
 }
 .wl-sidebar{
@@ -30,9 +32,21 @@
     width: 100%;
     grid-template-columns: repeat(3, [col-l2] 1fr);
 }
-
+.wl-list p{
+    width: 80%;
+    text-align: center;
+    display: block;
+}
 @media (max-width: 1024px) {
     .wl-video{
         grid-column: col-likes / -1;
     }
+}
+@media (max-width: 640px) {
+
+    .wl-list{
+        display: block;
+        margin-bottom: 3rem;
+    }
+
 }

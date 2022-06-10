@@ -11,7 +11,7 @@ function LikesPage() {
 	} = useUserData();
 
 	return  (
-		<div className="likes-container">
+		<div className="likes-container"> 
 		 <Sidebar className="likes-sidebar"/>
 
                 

@@ -31,9 +31,19 @@
     width: 100%;
     grid-template-columns: repeat(3, [col-p2] 1fr);
 }
-
+.play-list p{
+    width: 90%;
+    margin: 1rem auto;
+    text-align: center;
+}
 @media (max-width: 1024px) {
     .play-video{
         grid-column: col-play / -1;
+    }
+}
+@media (max-width: 640px) {
+    .play-list{
+        display: block;
+        margin-bottom: 3rem;
     }
 }

@@ -36,3 +36,11 @@
         grid-column: col-likes / -1;
     }
 }
+
+@media (max-width: 640px) {
+    .likes-list{
+        display: block;
+        margin-bottom: 3rem;
+    }
+   
+}

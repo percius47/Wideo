@@ -16,7 +16,7 @@ function Login() {
 
 	const loginHandler = async (e, email, password) => {
 		setFormVal({ email, password });
-    console.log("inside handler");
+
 		e.preventDefault();
 		try {
 			const res = await loginService(email, password);
@@ -29,7 +29,7 @@ function Login() {
 				navigate(from, { replace: true });
 			}
 		} catch (err) {
-			console.log("err", err);
+			// console.log("err", err);
 		}
 	};
   return (
@@ -98,6 +98,13 @@ function Login() {
              onClick={(e)=>loginHandler(e, formVal.email, formVal.password)}
              >
          Login
+     </button>
+         </div>
+         <div class="btn-flex">
+             <button className="login-link" 
+             onClick={(e)=>loginHandler(e, "guest@wideo.com", "guest@123")}
+             >
+         Guest Login
      </button>
          </div>
 

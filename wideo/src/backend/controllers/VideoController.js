@@ -23,6 +23,30 @@ export const getAllVideosHandler = function () {
     );
   }
 };
+export const updateVideoCountHandler = function (schema, request) {
+	const { videoId } = request.params;
+	try {
+		const allVideos = this.db.videos;
+		const updatedVideos = allVideos.map((video) => {
+			if (video._id === videoId) {
+
+				video.views = video.views + 1;
+			
+			}
+			return video;
+		});
+		this.db.videos.update({ videos: updatedVideos });
+		return new Response(200, {}, { videos: updatedVideos });
+	} catch (error) {
+		return new Response(
+			500,
+			{},
+			{
+				error,
+			}
+		);
+	}
+};
 
 /**
  * This handler handles uploads a new video to the db.

@@ -21,7 +21,7 @@ function PlaylistModal({ val, setOpened, video }) {
 		"SET_PLAYLISTS",
 		`${playlistTitle} playlist created and video added`
 	);
-           console.log("play",playlists) 
+   
    
 	useEffect(() => setIsOpen(val));
   return (

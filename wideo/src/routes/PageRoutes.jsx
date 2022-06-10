@@ -12,6 +12,7 @@ import PlaylistSingle from '../Components/PlaylistSingle';
 
 
 
+
 function PageRoutes() {
   return (
     
@@ -22,11 +23,13 @@ function PageRoutes() {
         <Route path="explore/:videoId" element={<SingleVideo />} />
         <Route path="/login" element={<Login />} /> 
         <Route path="/signup" element={<Signup/>} /> 
+
         <Route path="/likes" element={<LikesPage />} />
-        <Route path="/:playlistId" element={<PlaylistSingle />} />
+        <Route path="playlist/:playlistId" element={<PlaylistSingle />} />
 				<Route path="/watchLater" element={<WatchLaterPage />} />
 		<Route path="/history" element={<HistoryPage />} />
        		 <Route path="/playlist" element={<Playlist />} />
+
         
     </Routes>
 

@@ -13,11 +13,12 @@ export const PlaylistCard = ({ playlist }) => {
 		"SET_PLAYLISTS",
 		`Deleted ${playlist.title}`
 	);
-	return (
+	console.log("playlist in card",playlist);
+	return ( 
 		<div className="play-card pointer">
 			<div
 				className="playlist-card-img"
-				onClick={() => navigate(`/${playlist._id}`)}
+				onClick={() => navigate(`/playlist/${playlist._id}`)}
 			>
 				<img
 					src={

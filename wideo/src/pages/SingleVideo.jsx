@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import Sidebar from '../Components/Sidebar'
-
+import ReactPlayer from "react-player/youtube"
 import "./SingleVideo.css"
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../context/auth-context';
@@ -12,6 +12,7 @@ import { deleteLikes } from '../services/likes/deleteLikes';
 import { removeWatchLater } from '../services/watchlist/removeWatchLater';
 import { addToWatchLater } from '../services/watchlist/watchLater';
 import { checkPlaylist } from '../util/checkPlaylist';
+
 import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import LibraryAddRoundedIcon from '@mui/icons-material/LibraryAddRounded';
@@ -23,6 +24,7 @@ function SingleVideo() {
   const {
 		videoListingState: { data },
 	} = useVideoListing();
+	const videoRef = useRef();
 	const [opened, setOpened] = useState(false);
 
 	const { videoId } = useParams();
@@ -78,16 +80,13 @@ function SingleVideo() {
    <div className=" single-vid-video">
 				<div className='video-frame-parent'>
                     {/* video */}
-					<iframe
+					<ReactPlayer
+						url={video?.src}
+						controls
 						width="100%"
-						src={video?.src}
-						title="YouTube player"
-						frameborder="0"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-						allowfullscreen
-						loading="lazy"
-						className="video-frame"
-					></iframe>
+						playing={true}
+						ref={videoRef}
+					/>
 
 					<div className="vid-description">
 						<h2>{video?.title}</h2>

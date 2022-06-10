@@ -99,7 +99,7 @@ transform: scale(1.8);
 }
 
 
-  @media screen and (max-width: 970px) {
+  @media screen and (max-width: 985px) {
   .header-search{
     display: none;
   }

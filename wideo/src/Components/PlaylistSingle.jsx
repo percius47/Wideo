@@ -14,7 +14,7 @@ function PlaylistSingle() {
 	const playlist = playlists.find(
 		(currPlaylist) => currPlaylist._id === playlistId
 	);
-console.log("playlist inside single playlist",playlist);
+
   return (
     	<div className="single-play-container">
     <Sidebar className="single-play-sidebar"/>

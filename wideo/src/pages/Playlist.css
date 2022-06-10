@@ -15,11 +15,12 @@
 }
 .play-video{
     color: var(--text);
+    margin: 1rem;
     margin-top: 8vh;
-}
-.play-video{
+
     grid-column: col-play 2/ -1;
     min-height: 85vh;
+    
 }
 .play-list{
      

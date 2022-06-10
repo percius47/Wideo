@@ -48,7 +48,7 @@ const UserDataProvider = ({ children }) => {
 						});
 					}
 				} catch (err) {
-					console.log("error", err);
+			
 				}
 			})();
 		auth.isAuthVL &&
@@ -58,7 +58,7 @@ const UserDataProvider = ({ children }) => {
 					const res = await getWatchLater(auth.tokenVL);
 						
 					if (res.status === 200) {
-						console.log("res data",res);
+					
 						userDataDispatch({
 							type: "SET_WATCHLATER",
 							payload: { data: res.data },
@@ -66,7 +66,7 @@ const UserDataProvider = ({ children }) => {
 						setWatchLaterLoading(false);
 					}
 				} catch (err) {
-					console.log("error", err);
+			
 				}
 			})();
 		auth.isAuthVL &&
@@ -74,7 +74,7 @@ const UserDataProvider = ({ children }) => {
 				setOtherPlaylistLoading(true);
 				try {
 					const res = await getAllPlaylistsHandler(auth.tokenVL);
-					console.log("playlist", res);
+			
 					if (res.status === 200) {
 						userDataDispatch({
 							type: "SET_PLAYLISTS",
@@ -83,7 +83,7 @@ const UserDataProvider = ({ children }) => {
 						setOtherPlaylistLoading(false);
 					}
 				} catch (err) {
-					console.log("error", err);
+					// console.log("error", err);
 				}
 			})();
 		auth.isAuthVL &&
@@ -91,7 +91,7 @@ const UserDataProvider = ({ children }) => {
 				setHistoryLoading(true);
 				try {
 					const res = await fetchHistory(auth.tokenVL);
-					console.log("in history playlists", res.data);
+			
 					if (res.status === 200) {
 						userDataDispatch({
 							type: "SET_HISTORY",
@@ -100,7 +100,7 @@ const UserDataProvider = ({ children }) => {
 						setHistoryLoading(false);
 					}
 				} catch (err) {
-					console.log("error", err);
+					// console.log("error", err);
 				}
 			})();
 	}, [auth.isAuthVL]);

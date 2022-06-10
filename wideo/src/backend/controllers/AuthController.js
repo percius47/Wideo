@@ -1,6 +1,7 @@
 import { v4 as uuid } from "uuid";
 import { Response } from "miragejs";
 import { formatDate } from "../utils/authUtils";
+import {toast} from "react-hot-toast"
 const sign = require("jwt-encode");
 /**
  * All the routes related to Auth are present here.
@@ -41,8 +42,9 @@ export const signupHandler = function (schema, request) {
       watchlater: [],
     };
     const createdUser = schema.users.create(newUser);
-    console.log("controller",createdUser,newUser);
-    console.log("token",process.env.REACT_APP_JWT_SECRET);
+
+    toast.success(`Welcome, ${createdUser.firstName}!`)
+
     const encodedToken = sign({ _id, email }, process.env.REACT_APP_JWT_SECRET);
     return new Response(201, {}, { createdUser, encodedToken });
   } catch (error) {

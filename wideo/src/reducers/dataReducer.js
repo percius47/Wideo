@@ -11,7 +11,7 @@ export const userDataReducer = (state, action) => {
 			};
 		case "SET_WATCHLATER":
 			const watchlater = action.payload.data.watchlater;
-			console.log("inside data red",watchlater);
+	
 			return {
 				...state,
 				watchLaterPlaylist: [...watchlater],
@@ -24,7 +24,7 @@ export const userDataReducer = (state, action) => {
 			};
 		case "SET_PLAYLISTS":
 			const data = action.payload.data.playlists;
-			console.log(data);
+
 			return {
 				...state,
 				playlists: [...data],

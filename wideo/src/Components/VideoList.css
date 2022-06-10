@@ -5,6 +5,7 @@
 }
 .chip-container{
 margin:  1rem;
+margin-top: 1.5rem;
 }
 .chip{
     border: 1px solid var(--text);
@@ -22,9 +23,10 @@ color: var(--primary-black);
    
     width: 100%;
     grid-template-columns: repeat(3, [col-video] 1fr);
+    margin-bottom: 2rem;
 }
 
-/* windys css */
+
 .banner-img{
     position: relative;
     top: 0px;

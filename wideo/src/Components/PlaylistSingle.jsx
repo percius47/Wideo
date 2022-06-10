@@ -14,7 +14,7 @@ function PlaylistSingle() {
 	const playlist = playlists.find(
 		(currPlaylist) => currPlaylist._id === playlistId
 	);
-
+console.log("playlist inside single playlist",playlist);
   return (
     	<div className="single-play-container">
     <Sidebar className="single-play-sidebar"/>
@@ -27,7 +27,11 @@ function PlaylistSingle() {
 						<h3>No videos added...</h3>
 					) : (
 						playlist.videos.map((video) => (
-                       <PlaylistVideo video={video} playlistType="Likes" />
+                        <PlaylistVideo
+                        video={video}
+                        playlistTitle={`${playlist.title}`}
+                        playlist={playlist}
+                    />
                       
                    ))
                )}

@@ -18,7 +18,7 @@ function Playlist() {
            <div className="play-video">
            <h2>Playlists</h2>
            <div className="play-list">
-               {playlists.length === 0 ? (
+               {playlists.length === 0 ? ( 
                    <p>No playlists created.</p>
                ) : (
                 playlists.map((playlist) =>

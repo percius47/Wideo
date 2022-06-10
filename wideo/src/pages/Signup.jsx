@@ -91,7 +91,7 @@ function Signup() {
       <input className='login-input-pwd'
        	type={`${pwdToggle.type}`}
          id="email-password"
-         pattern="^.{8,}$"
+        //  pattern="^.{8,}$"
          required
          placeholder="Enter Password"
          value={formVal.password}
@@ -120,23 +120,13 @@ function Signup() {
       {/* Confirm Pwd */}
       
      
-  <div class="btn-flex">
-       <NavLink  className="login-link"
+  <button class="btn-flex login-link"
+   type='submit'
+  >
       
-      to="/explore"
-
-      type='submit'
-      onClick={(e)=>{	signUpHandler(
-        e,
-        formVal.email,
-        formVal.password,
-        formVal.firstName,
-        formVal.lastName
-      )}}
-      >
       Continue
-  </NavLink>
-</div>
+  
+</button>
 </form>
   </div>
   </div>

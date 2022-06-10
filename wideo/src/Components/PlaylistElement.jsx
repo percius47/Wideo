@@ -8,7 +8,7 @@ import { removeWatchLater } from '../services/watchlist/removeWatchLater';
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 import { useCustomPlaylist } from '../custom-hooks/useCustomPlaylist';
 import { addToHistory } from '../services/history/addToHistory';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate, NavLink, useNavigate } from 'react-router-dom';
 import { getViewCount } from '../util/getViewCount';
 function PlaylistElement({ video, playlistType, playlist }) {
     const [removeFromLikesServerCall] = usePlaylist(
@@ -65,14 +65,15 @@ function PlaylistElement({ video, playlistType, playlist }) {
     <div class="card-img-wrapper"
     	onClick={async () => {
             addToHistoryServerCall();
+			
             navigate(`/explore/${video.id}`);
         }}>
 
   
 
 			
-					<img src={video.thumbnail} className=" card-img" />
-                    
+					<img src={video.thumbnail} className=" card-img" alt='No videos'/>
+               
 				</div>
 				<div className="card-description">
 		

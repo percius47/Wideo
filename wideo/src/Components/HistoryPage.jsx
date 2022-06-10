@@ -6,6 +6,7 @@ import { useUserData } from '../context/data-context';
 import { useCustomPlaylist } from '../custom-hooks/useCustomPlaylist';
 import { removeFromHistory } from '../services/history/removeFromHistory';
 import { deleteHistory } from '../services/history/deleteHistory';
+import { PlaylistVideo } from './PlaylistVideo';
 
 function HistoryPage() {
     const {
@@ -41,7 +42,9 @@ function HistoryPage() {
                    <p>No Videos in History.</p>
                ) : (
                    history.map((video) => (
-                       <PlaylistElement video={video} playlistType="History" />
+                       <PlaylistVideo video={video} playlistType="History"
+                       playlist={history}
+                       />
                       
                    ))
                )}

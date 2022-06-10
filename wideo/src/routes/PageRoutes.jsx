@@ -15,7 +15,7 @@ import PlaylistSingle from '../Components/PlaylistSingle';
 
 function PageRoutes() {
   return (
-    
+     
   
     <Routes>
     <Route path="/" element={<Explore />} />

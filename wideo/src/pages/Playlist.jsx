@@ -31,7 +31,7 @@ function Playlist() {
                 )
             )
                )}
-           </div>
+           </div> 
            </div>
        </div>
   )

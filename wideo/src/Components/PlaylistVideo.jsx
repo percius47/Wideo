@@ -107,7 +107,7 @@ export const PlaylistVideo = ({ video, playlistTitle, playlist }) => {
 			<div class="flex-center">
 				<DeleteRounded
 					onClick={() => removeVideoHandler()}
-				/>
+ 				/>
                 </div>
 			</div>
 		</div>

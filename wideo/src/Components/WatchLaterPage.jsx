@@ -1,6 +1,7 @@
 import React from 'react'
 import { useUserData } from '../context/data-context';
 import PlaylistElement from './PlaylistElement';
+import { PlaylistVideo } from './PlaylistVideo';
 import Sidebar from './Sidebar'
 import "./WatchLaterPage.css"
 function WatchLaterPage() {
@@ -20,7 +21,9 @@ function WatchLaterPage() {
                    <p>No save Videos.</p>
                ) : (
                 watchLaterPlaylist.map((video) => (
-                       <PlaylistElement video={video} playlistType="Watch Later" />
+                       <PlaylistVideo video={video} playlistType="Watch Later"
+                       playlist={watchLaterPlaylist}
+                       />
                       
                    ))
                )}

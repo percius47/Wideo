@@ -50,6 +50,9 @@
     text-align: center;
     display: block;
 }
+.hist-heading{
+    margin-left: 1rem;
+}
 @media (max-width: 1024px) {
     .hist-video{
         grid-column: col-likes / -1;

@@ -37,6 +37,9 @@
     text-align: center;
     display: block;
 }
+.wl-video{
+    margin-left: 1rem;
+}
 @media (max-width: 1024px) {
     .wl-video{
         grid-column: col-likes / -1;

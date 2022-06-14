@@ -136,7 +136,7 @@ export const VideoCard = ({ video }) => {
 					: () => navigate("/login")
 			}
 				>
-                <AddRoundedIcon/>
+               {inWatchLaterPlaylist?<CheckCircleOutlineRoundedIcon/>:<AddRoundedIcon/>}
                 <span >Watch Later </span>
                     </div>
                 </li>
@@ -146,7 +146,7 @@ export const VideoCard = ({ video }) => {
 						isAuthVL ? () => likeHandler() : () => navigate("/login")
 					}
 				>
-                <AddRoundedIcon/>
+        {inLikedPlaylist?<CheckCircleOutlineRoundedIcon/>:<AddRoundedIcon/>}
                 <span >Liked</span>
                     </div>
                 </li>

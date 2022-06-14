@@ -30,7 +30,9 @@
     width: 100%;
     grid-template-columns: repeat(3, [col-l2] 1fr);
 }
-
+.likes-video{
+    margin-left: 1rem;
+}
 @media (max-width: 1024px) {
     .likes-video{
         grid-column: col-likes / -1;

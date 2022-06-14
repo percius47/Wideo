@@ -19,7 +19,7 @@ function PlaylistModal({ val, setOpened, video }) {
 		addPlaylist,
 		{ playlist: { title: playlistTitle, videos: [{ ...video }] } },
 		"SET_PLAYLISTS",
-		`${playlistTitle} playlist created and video added`
+		`${playlistTitle} playlist created ` 
 	);
    
    

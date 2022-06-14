@@ -44,6 +44,12 @@ z-index: 3;
       padding: 0.5rem;
       border-radius: 0.25rem;
   }
+  .playlist-modal-item{
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
   .playlist-modal-item input{
   
     accent-color: var(--CTA); 

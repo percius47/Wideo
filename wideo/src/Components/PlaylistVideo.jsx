@@ -86,16 +86,18 @@ export const PlaylistVideo = ({ video, playlistTitle, playlist }) => {
 
 	return (
 		<div class=" playlist-video pointer"
-		onClick={async () => {
-			updateVideoCountServerCall();
-			{
-				isAuth && addToHistoryServerCall();
-			}
-			navigate(`/explore/${video.id}`);
-		}}
+	
 		>
 			<div class="img-container">
-				<img src={video.thumbnail} alt="product image" class="single-img" />
+				<img src={video.thumbnail} alt="product image" class="single-img"
+					onClick={async () => {
+						updateVideoCountServerCall();
+						{
+							isAuth && addToHistoryServerCall();
+						}
+						navigate(`/explore/${video.id}`);
+					}}
+				/>
 			</div>
 			<div className="single-content ">
 				<div className="single-description">

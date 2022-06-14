@@ -1,9 +1,10 @@
 import "./VideoCard.css";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useUserData } from "../context/data-context";
 import { checkPlaylist } from "../util/checkPlaylist";
 import { usePlaylist } from "../custom-hooks/usePlaylist";
+import {useOnClickOutside} from "../custom-hooks/useOnClickOutside"
 import { addToLikes } from "../services/likes/addLikesService";
 import { deleteLikes } from "../services/likes/deleteLikes";
 import { addToWatchLater } from "../services/watchlist/watchLater";
@@ -11,17 +12,23 @@ import { removeWatchLater } from "../services/watchlist/removeWatchLater";
 import { addToHistory } from "../services/history/addToHistory";
 import { useAuth } from "../context/auth-context";
 import { getViewCount } from "../util/getViewCount";
+import CheckCircleOutlineRoundedIcon from '@mui/icons-material/CheckCircleOutlineRounded';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import PlaylistAddRoundedIcon from '@mui/icons-material/PlaylistAddRounded';
+import AddRoundedIcon from '@mui/icons-material/AddRounded';
+
 import PlaylistModal from "./PlaylistModal";
 
 export const VideoCard = ({ video }) => {
+	const ref=useRef();
 	const navigate = useNavigate();
 	const {
 		userData: { likesPlaylist, watchLaterPlaylist },
 	} = useUserData();
-	
+	const {
+		auth: { isAuthVL },
+	} = useAuth();
 	const [openOptions, setOpenOptions] = useState(false);
+	useOnClickOutside(ref, () => setOpenOptions(false));
 	const [opened, setOpened] = useState(false);
 	const inLikedPlaylist = checkPlaylist(video, likesPlaylist);
 	const inWatchLaterPlaylist = checkPlaylist(video, watchLaterPlaylist);
@@ -59,12 +66,14 @@ export const VideoCard = ({ video }) => {
 	);
 	const likeHandler = () =>
 		inLikedPlaylist ? removeFromLikesServerCall() : addToLikesServerCall();
-	const { auth,setAuth } = useAuth();
+
 	const watchLaterHandler = () =>
 		inWatchLaterPlaylist
 			? removeFromWatchLaterServerCall()
 			: addToWatchLaterServerCall();
           
+
+			console.log("open",openOptions);
 	return (
 	
 <div class="card">
@@ -108,65 +117,51 @@ export const VideoCard = ({ video }) => {
 					
 				
 
-					<MoreVertIcon
-						onClick={() => setOpenOptions(!openOptions)}
-					/>
+					{!openOptions && <MoreVertIcon
+						onClick={() => setOpenOptions(true)}	
+					/>}
+						{openOptions &&<MoreVertIcon
+						onClick={() => setOpenOptions(false)}	
+					/>}
 				</div>
                 {openOptions && 
-                < div className="menu-list">
+                < div className="menu-list" ref={ref}>
             <ul className="mobile-menu-list">
 
-                <li className='mobile-menu-list-item'>
-                <div	
+                <li >
+                <div className='mobile-menu-list-item'
 			onClick={
-				auth.isAuthVL
+				isAuthVL
 					? () => watchLaterHandler()
 					: () => navigate("/login")
 			}
 				>
-                <PlaylistAddRoundedIcon/>
-                <span  className='mobile-menu-list-item'>
-               
-                 Watch Later
-              
-                 </span>
+                <AddRoundedIcon/>
+                <span >Watch Later </span>
                     </div>
                 </li>
-                <li className='mobile-menu-list-item'>
-                 <div 
+                <li >
+                 <div className='mobile-menu-list-item'
 					onClick={
-						auth.isAuthVL ? () => likeHandler() : () => navigate("/login")
+						isAuthVL ? () => likeHandler() : () => navigate("/login")
 					}
 				>
-                <PlaylistAddRoundedIcon/>
-                <span  className='mobile-menu-list-item'>
-              
-                  Liked
-                 
-                 </span>
+                <AddRoundedIcon/>
+                <span >Liked</span>
                     </div>
                 </li>
-                <li  className='mobile-menu-list-item'>
+                <li  >
                    
-                   {/* {auth?(  */}
-                    < div 
-						onClick={() =>{ setOpened(true)
-						
-							}}
+                   {isAuthVL?( 
+                    < div className='mobile-menu-list-item'
+						onClick={() =>{ setOpened(true)}}
 					>
-                    <PlaylistAddRoundedIcon/>
-                        <span
-                   
-                 
-                    onClick={() => {
-                
-                    }}
-                   >
-                     
-                    Playlist
-                       </span>
-                  
-                   </div>
+                    <AddRoundedIcon/>
+                        <span>
+                      Playlist
+                       </span>                 
+                   </div>):
+				   (navigate("/login"))}
                 
                    </li>
 				   <PlaylistModal 

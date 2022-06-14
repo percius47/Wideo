@@ -55,8 +55,13 @@
   .mobile-menu-list li{
     margin: 0.5rem auto;
     padding: 0.5rem 1rem;
-   
+ 
   }
   .mobile-menu-list li:hover{
       background-color: var(--selected);
+  }
+  .mobile-menu-list-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }

@@ -32,7 +32,7 @@ function PlaylistSingle() {
                         playlistTitle={`${playlist.title}`}
                         playlist={playlist}
                     />
-                      
+                       
                    ))
                )}
            </div>

@@ -59,11 +59,19 @@ align-items: center;
 @media (max-width: 1024px) {
     .single-play-video{
         grid-column: col-likes / -1;
+        margin-left: 1rem;
+    }
+    .single-play-list{
+        display: grid;
+        grid-template-columns: repeat(2, [col-l2] 1fr);
     }
 }
 @media (max-width: 640px) {
     .playlist-video{
         width: 90%;
 
+    }
+    .single-play-list{
+       display: block;
     }
 }

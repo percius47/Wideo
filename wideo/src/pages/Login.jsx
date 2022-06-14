@@ -110,7 +110,7 @@ function Login() {
 
          <div class="btn-flex">
              <NavLink className="signup-link" to="/signup">
-        Create New Account <span className=" link-col-cta">&gt;</span>
+       Sign Up
      </NavLink>
          </div>
   

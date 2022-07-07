@@ -31,9 +31,9 @@
     padding: 1rem;
     color: white;
     width: 50%;
-    height: auto;  
+    height: max-content;  
     border-radius: 1rem;
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
 }
 
 .login-heading{
